@@ -1,0 +1,364 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-page='landing-page'],
+[data-page='confidentiality-not-accepted'] {
+	.container {
+		max-width: 1200px;
+	}
+
+	.title {
+		font-size: 22px;
+	}
+
+	.text {
+		font-size: 16px;
+	}
+
+	.landing-page-header {
+		text-align: center;
+
+		.logo-partner {
+			text-align: center;
+			display: inline-block;
+			margin: 20px 0;
+			width: 50%;
+			max-width: 500px;
+
+			img {
+				max-width: 100%;
+				display: inline-block;
+			}
+		}
+
+		.banner {
+			width: 100%;
+			display: block;
+			text-align: left;
+
+			img {
+				width: 100%;
+				display: block;
+			}
+
+			.bannner-description {
+				display: block;
+				background: $blue;
+				width: 100%;
+				padding: 40px 0;
+				color: $white;
+
+				.title {
+					display: block;
+					width: 100%;
+					color: inherit;
+					margin-bottom: 10px;
+				}
+
+				.text {
+					display: block;
+					width: 100%;
+					margin-bottom: 70px;
+					font-size: 16px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
+
+	.about-us {
+		display: block;
+		width: 100%;
+		padding: 40px 0;
+
+		.title {
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+			color: $blue;
+		}
+
+		.text {
+			display: block;
+			width: 100%;
+			color: $black;
+			margin-bottom: 40px;
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	.links-container {
+		display: block;
+		width: 100%;
+		background: $grey;
+		padding: 40px 0 80px;
+
+		.title {
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+			color: $blue;
+		}
+
+		.text {
+			display: block;
+			width: 100%;
+			color: $black;
+			margin-bottom: 40px;
+		}
+
+		.links {
+			display: block;
+			width: 100%;
+
+			.link-header {
+				display: flex;
+				width: 100%;
+				margin-bottom: 8px;
+				display: none;
+
+				@include md {
+					display: block;
+				}
+
+				.title {
+					font-size: 15px;
+					color: darken($grey-darken, 30%);
+					font-weight: 600;
+					padding: 0 20px;
+					margin-bottom: 0;
+				}
+			}
+
+			.link-container {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				background: $white;
+				border: 1px solid $grey-darken;
+				margin-bottom: 10px;
+				flex-wrap: wrap;
+
+				.col {
+					position: relative;
+
+					&:nth-child(1) {
+						&::before {
+							content: "Title: ";
+
+							@include md {
+								content: none;
+							}
+						}
+					}
+
+					&:nth-child(2) {
+						&::before {
+							content: "Description: ";
+
+							@include md {
+								content: none;
+							}
+						}
+					}
+
+					&::before {
+						font-size: 15px;
+						color: darken($grey-darken, 30%);
+						font-weight: 600;
+						padding: 0 20px;
+						margin-top: 20px;
+						display: block;
+					}
+				}
+
+				.link-col {
+					padding: 10px 10px 10px 20px;
+
+					.text {
+						margin-bottom: 0;
+						line-height: 30px;
+						text-transform: uppercase;
+						color: $black;
+						font-size: 15px;
+					}
+
+					.with-icon {
+						padding-left: 40px;
+						background: $blue;
+						justify-content: center;
+						padding: 8px 10px;
+						margin-bottom: 10px;
+
+						@include md {
+							margin-bottom: 0;
+						}
+
+						svg {
+							width: 27px;
+							height: 26px;
+
+							path {
+								fill: $white;
+							}
+						}
+
+						.text {
+							font-size: 13px;
+							color: $white;
+							font-weight: 700;
+							margin-left: 10px;
+							display: inline-block;
+							width: auto;
+						}
+
+						&:hover {
+							background: $blue-light;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.landing-page-footer {
+		padding: 60px 0;
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@include md {
+				justify-content: space-between;
+			}
+
+			.logo {
+				width: 100px;
+				height: 141px;
+				margin-bottom: 50px;
+
+				@include md {
+					margin-bottom: 0;
+				}
+			}
+
+			.footer-contact {
+				width: 100%;
+				text-align: center;
+
+				@include md {
+					width: auto;
+					text-align: left;
+				}
+
+				.title {
+					font-size: 25px;
+					font-weight: 700;
+					color: $blue;
+					margin-bottom: 20px;
+
+					@include md {
+						margin-bottom: 30px;
+					}
+				}
+
+				.skype {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					@include md {
+						justify-content: start;
+					}
+
+					svg {
+						width: 25px;
+						height: 25px;
+					}
+
+					.text {
+						font-size: 19px;
+						color: $blue;
+						text-decoration: none;
+						margin-left: 5px;
+					}
+				}
+
+				.tel, .email {
+					font-size: 19px;
+					color: $blue;
+					text-decoration: none;
+				}
+
+				.email {
+					display: block;
+					margin-top: 10px;
+					
+					@include md {
+						margin-top: 60px;
+					}
+				}
+			}
+		}
+	}
+
+	.preview-page {
+		width: 100%;
+		background: $blue;
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+
+			@include lg {
+				// padding: 0;
+				height: 80px;
+			}
+
+			.text {
+				font-size: 16px;
+				font-weight: 700;
+				color: $white;
+				line-height: 24px;
+				max-width: 700px;
+				width: 100%;
+				margin-bottom: 15px;
+
+				@include md {
+					margin-bottom: 0;
+					width: 70%;
+				}
+			}
+
+			.btn {
+				border: none;
+
+				&:hover {
+					background: $blue-light;
+				}
+			}
+		}
+	}
+
+	.divider {
+		display: block;
+		width: 100%;
+		height: 5px;
+		background: $blue-light;
+	}
+
+	.share-button {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		padding: 30px 0;
+		// border-top: 3px solid $grey;
+		border-bottom: 3px solid $grey;
+	}
+}

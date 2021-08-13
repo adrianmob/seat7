@@ -1,0 +1,38 @@
+$white: white;
+$black: black;
+$error: #d40000;
+$red: #d40000;
+$delete: #e73e33;
+$success: #00b005;
+$active: #00b005;
+
+//Checkbox Colors
+$preselected: #ff9000;
+
+//Blue
+$blue-lighter: #09b0ee;
+$blue-light: #017bbc;
+$blue: #0056a7;
+$blue-dark: #435363;
+$blue-darken: #293f54;
+// $blue-light: #435363;
+$blue-text: #435363;
+$blue-light-text: #337ab7;
+
+//Grey
+$grey-light: #f4f4f4;
+$grey: #eaeaea;
+$grey-dark: #b7b7b7;
+$grey-darken: #909090;
+$grey-darken2: #898989;
+$grey-darken3: #373737;
+
+//Beige
+$beige-light: #e9dfd6;
+
+//Gradients
+$blue-gradient: linear-gradient(-45deg, darken($blue, 5%), lighten($blue-lighter, 15%));
+
+//Shadows
+$box-shadow: rgba($black, 0.4);
+$box-shadow-15: 0 0 10px rgba($black, 0.25);

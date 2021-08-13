@@ -1,0 +1,57 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+.ck-editor__editable {
+	height: 250px;
+	overflow: auto;
+
+	ul, ol {
+		margin-left: 20px;
+	}
+}
+
+.ck-sticky-panel__content {
+	.ck-file-dialog-button {
+		display: none;
+	}
+
+	.ck-dropdown:not(.ck-heading-dropdown) {
+		display: none;
+	}
+}
+
+[data-component='text-editor'] {
+	blockquote {
+		padding-left: 20px;
+		border-left: 5px solid $white;
+	}
+
+	ol {
+		padding-left: 17px;
+	}
+
+	ul {
+		padding-left: 17px;
+		// list-style: none;
+	}
+
+	&.black {
+		blockquote {
+			border-color: $black;
+		}
+
+		a {
+			color: $blue-lighter;
+		}
+	}
+
+	&.white {
+		blockquote {
+			border-color: $white;
+		}
+
+		a {
+			color: $blue-lighter;		
+		}
+	}
+}

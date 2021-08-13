@@ -1,0 +1,66 @@
+$grid-breakpoints: (
+	xs: 0,
+	xsx: 375px,
+	sm: 480px,
+	md: 768px,
+	lg: 992px,
+	laptop: 1360px,
+	laptop-large: 1440px,
+	large: 1580px
+) !default;
+
+$container-max-widths: (
+	sm: 420px,
+	md: 720px,
+	lg: 960px
+) !default;
+
+
+// Breakpoints
+@mixin xs {
+	@media (min-width: 0) {
+		@content;
+	}
+}
+
+@mixin xsx {
+	@media (min-width: map-get($grid-breakpoints, 'xsx')) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: map-get($grid-breakpoints, 'sm')) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: map-get($grid-breakpoints, 'md')) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width:  map-get($grid-breakpoints, 'lg')) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (min-width:  map-get($grid-breakpoints, 'laptop')) {
+		@content;
+	}
+}
+
+@mixin laptop-large {
+	@media (min-width:  map-get($grid-breakpoints, 'laptop-large')) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media (min-width:  map-get($grid-breakpoints, 'large')) {
+		@content;
+	}
+}

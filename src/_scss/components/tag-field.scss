@@ -1,0 +1,233 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-component='tag-field'] {
+	width: 100%;
+	display: block;
+
+	.add-tags-field {
+		display: block;
+		width: 100%;
+		position: relative;
+		margin-bottom: 13px;
+
+		.label {
+			display: block;
+			width: 100%;
+			font-size: 14px;
+			color: darken($grey-darken2, 10%);
+			margin-bottom: 4px;
+			font-weight: 500;
+		}
+
+		.input-container {
+			position: relative;
+			
+			.input {
+				height: 45px;
+				width: 100%;
+				padding: 10px 115px 10px 10px;
+				border: 1px solid $grey-darken2;
+				border-radius: 5px;
+				color: $black;
+				font-size: 16px;
+				background: $white;
+				z-index: 2;
+				position: relative;
+
+				&::placeholder {
+					font-style: italic;
+					font-size: 16px;
+					color: $grey-dark;
+				}
+			}
+
+			.tag-alert-message {
+				z-index: 2;
+				position: absolute;
+				top: 0;
+				right: 105px;
+				line-height: 43px;
+				background: $white;
+				padding: 0 10px;
+				font-size: 12px;
+				color: $error;
+				border-top: 1px solid $grey-darken2;
+				border-bottom: 1px solid $grey-darken2;
+				pointer-events: none;
+			}
+
+			.btn-add-tag {
+				position: absolute;
+				z-index: 3;
+				top: 0;
+				right: 0;
+				height: 45px;
+				padding: 8px 10px;
+				
+				svg {
+					margin-left: 7px;
+					width: 21px;
+					height: 14px;
+				}
+			}
+
+			.related-tags {
+				margin-top: -5px;
+				padding: 25px 15px 40px;
+				display: block;
+				width: 100%;
+				border: 1px solid $grey-darken2;
+				position: relative;
+				z-index: 1;
+				border-radius: 5px;
+				background: $white;
+
+				.btn-tag {
+					margin-right: 8px;
+					margin-bottom: 8px;
+					border: none;
+					padding: 5px 8px;
+
+					&:hover {
+						background: $blue-light;
+						color: $white;
+						border: none;
+					}
+				}
+
+				.btn-manage-tags {
+					position: absolute;
+					bottom: -1px;
+					left: -1px;
+					padding: 5px 8px 5px 5px;
+					font-weight: 700;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	.tags-list {
+		display: block;
+		width: 100%;
+
+		.tag {
+			display: inline-block;
+			width: auto;
+			position: relative;
+			background: darken($grey, 15%);
+			padding: 5px 12px 5px 12px;
+			margin-right: 13px;
+			margin-bottom: 13px;
+			border-radius: 5px;
+			cursor: default;
+
+			.remove-tag {
+				position: absolute;
+				top: -5px;
+				right: -5px;
+				border-radius: 50%;
+				background: darken($grey-dark, 15%);
+				width: 16px;
+				height: 16px;
+				font-size: 0;
+				cursor: pointer;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					height: 1px;
+					width: 9px;
+					background: $white;
+				}
+
+				&::before {
+					transform: translate(-50%, -50%) rotate(-45deg);
+				}
+
+				&::after {
+					transform: translate(-50%, -50%) rotate(45deg);
+				}
+			}
+		}
+	}
+}
+
+[data-component='find-tags'] {
+	margin-left: 25px;
+	margin-top: -3px;
+
+	.MuiPaper-root {
+		// position: relative;
+		overflow: visible;
+		border: 1px solid $grey-dark;
+		padding: 8px 8px 5px;
+
+		&::before {
+			z-index: 99;
+			content: '';
+			width: 0;
+			height: 0;
+			border-top: 9px solid transparent;
+			border-bottom: 9px solid transparent;
+			border-right: 19px solid $grey-dark;
+			position: absolute;
+			top: 50%;
+			right: 100%;
+			transform: translateY(-50%);
+		}
+
+		&::after {
+			z-index: 99;
+			content: '';
+			width: 0; 
+			height: 0; 
+			border-top: 8px solid transparent;
+			border-bottom: 8px solid transparent;
+			border-right: 18px solid $white;
+			position: absolute;
+			top: 50%;
+			right: 100%;
+			transform: translateY(-50%);
+		}
+
+		.find-tags {
+			padding: 0;
+
+			.sc-iwyYcG {
+				height: 30px;
+				max-width: 180px;
+
+				input {
+					height: 100%;
+				}
+			}
+		}
+
+		.content-tags {
+			max-height: 200px;
+			overflow: auto;
+			@extend %scroll-bar;
+			margin: 0 -3px;
+
+			button {
+				display: inline-block;
+				color: $grey-darken3;
+				font-style: italic;
+				font-weight: 500;
+				margin: 3px;
+				padding: 0 5px;
+
+				&.active,
+				&:hover {
+					background: $blue;
+					color: $white;
+				}
+			}
+		}
+	}
+}

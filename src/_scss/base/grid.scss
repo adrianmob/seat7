@@ -1,0 +1,72 @@
+@import '../utils/medias.scss';
+
+.col {
+	display: inline-block;
+
+	&.align-right {
+		text-align: right;
+	}
+
+	@for $sm from 1 through 12 {
+		&.sm-#{$sm} {
+			width: #{100%/12*$sm};
+		}
+	}
+
+	@media screen and(min-width: map-get($grid-breakpoints, 'md')) {
+		@for $md from 1 through 12 {
+			&.md-#{$md} {
+				width: #{100%/12*$md};
+			}
+		}
+	}
+
+	@media screen and(min-width: map-get($grid-breakpoints, 'lg')) {
+		@for $lg from 1 through 12 {
+			&.lg-#{$lg} {
+				width: #{100%/12*$lg};
+			}
+		}
+	}
+}
+
+.col-inverse {
+	display: inline-block;
+
+	&.flex {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		&.align-center {
+			align-items: center;
+		}
+
+		&.justfy-center {
+			justify-content: center;
+		}
+	}
+
+	@for $sm from 1 through 12 {
+		&.sm-#{$sm} {
+			width: #{100%/$sm};
+		}
+	}
+
+	@media screen and(min-width: map-get($grid-breakpoints, 'md')) {
+		@for $md from 1 through 12 {
+			&.md-#{$md} {
+				width: #{100%/$md};
+			}
+		}
+	}
+
+	@media screen and(min-width: map-get($grid-breakpoints, 'lg')) {
+		@for $lg from 1 through 12 {
+			&.lg-#{$lg} {
+				width: #{100%/$lg};
+			}
+		}
+	}
+}

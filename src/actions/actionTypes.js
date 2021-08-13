@@ -1,0 +1,1 @@
+export const UPDATE_LOGED_USER = 'UPDATE_LOGED_USER';

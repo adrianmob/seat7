@@ -1,0 +1,553 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-page='project'] {
+	width: 100%;
+	min-height: 100vh;
+	background: $grey;
+
+	[data-component='project-content'] {
+		background: $white;
+
+		.project-header {
+			background: $blue;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: $white;
+			padding: 10px 10px 10px 20px;
+			position: relative;
+			z-index: 8;
+			height: 60px;
+
+			.title {
+				font-size: 18px;
+				font-weight: 400;
+			}
+
+			.btn-chat {
+				height: 60px;
+				width: 150px;
+				justify-content: flex-start;
+				background: $blue-lighter;
+
+				svg {
+					width: 50px;
+					height: 40px;
+				}
+
+				.text {
+					font-size: 20px;
+					font-weight: 700;
+				}
+			}
+
+			.chat-modal {
+				position: absolute;
+				top: 105%;
+				right: 10px;
+				height: 550px;
+				width: 450px;
+				box-shadow: 0 0 10px rgba($black, 0.16);
+				background: $beige-light;
+
+				&.closed {
+					display: none;
+				}
+
+				&.opened {
+					display: block;
+				}
+
+				.chat-container {
+					width: 100%;
+					height: 100%;
+					max-width: 450px;
+
+					.chat-header {
+						background: $blue-lighter;
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						height: 50px;
+						padding: 10px 20px;
+
+						.btn-close {
+							background: transparent;
+						}
+					}
+
+					.chat-content {
+						display: block;
+						height: calc(100% - 130px);
+						width: 100%;
+						padding: 10px 20px;
+
+						.message-received {
+							display: block;
+							padding-top: 40px;
+							padding-left: 80px;
+							width: 100%;
+							margin-bottom: 50px;
+							position: relative;
+
+							.profile-image {
+								position: absolute;
+								top: 0;
+								left: 0;
+								border-radius: 50%;
+								height: 70px;
+								width: 70px;
+								overflow: hidden;
+
+								img {
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									height: 80%;
+									transform: translate(-50%, -50%);
+								}
+							}
+
+							.message {
+								width: 70%;
+								display: block;
+								background: $white;
+								color: $black;
+								padding: 10px 15px;
+								border-radius: 3px;
+								position: relative;
+
+								&::after {
+									content: '';
+									width: 0;
+									height: 0;
+									border-top: 8px solid transparent;
+									border-bottom: 8px solid transparent;
+									border-right: 8px solid $white;
+									position: absolute;
+									top: 0px;
+									left: -7px;
+								}
+
+								.text {
+									display: block;
+									width: 100%;
+									font-size: 16px;
+									margin-bottom: 5px;
+								}
+
+								.date {
+									display: block;
+									width: 100%;
+									font-size: 12px;
+									color: $grey-darken;
+									text-align: right;
+								}
+							}
+						}
+
+						.message-sent {
+							display: block;
+							width: 100%;
+							text-align: right;
+							padding-left: 80px;
+
+							.message {
+								display: inline-block;
+								width: 70%;
+								background: lighten($blue-lighter, 25%);
+								padding: 10px 15px;
+								border-radius: 3px;
+
+								.date {
+									display: block;
+									width: 100%;
+									margin-bottom: 5px;
+									text-align: right;
+									color: $grey-darken;
+									font-size: 12px;
+								}
+
+								.text {
+									display: block;
+									width: 100%;
+									font-size: 16px;
+									text-align: left;
+									color: $black;
+								}
+							}
+						}
+					}
+
+					.chat-form {
+						width: 100%;
+						height: 60px;
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						padding: 10px 20px;
+
+						input {
+							width: calc(100% - 80px);
+							height: 50px;
+							padding: 10px;
+							border-radius: 3px;
+							border: none;
+							font-family: $primary-font;
+							font-size: 16px;
+						}
+
+						.btn-send {
+							background: transparent;
+							width: 40px;
+							height: 40px;
+							padding: 0;
+							border: none;
+							margin-left: 20px;
+
+							svg {
+								width: 100%;
+								height: 100%;
+
+								path {
+									fill: $blue-lighter;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.project-banner {
+			border-left: 1px solid $grey-dark;
+			border-right: 1px solid $grey-dark;
+			padding: 10px;
+
+			&.no-banner {
+				.banner-image {
+					height: 200px;
+				}
+			}
+
+			.banner-image {
+				max-height: 400px;
+				overflow: hidden;
+				position: relative;
+
+				&::before {
+					content: '';
+					z-index: 2;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba($black, 0.2);
+				}
+
+				img {
+					z-index: 1;
+					display: block;
+					// position: absolute;
+					// top: 50%;
+					// left: 0;
+					// transform: translateY(-50%);
+					width: 100%;
+
+					@include md {
+						height: auto;
+						width: 100%;
+					}
+				}
+
+				.without-banner {
+					height: 200px;
+					line-height: 200px;
+					text-align: center;
+					width: 100%;
+					display: block;
+					color: $white;
+					font-size: 40px;
+					font-weight: 700;
+					z-index: 3;
+					position: relative;
+				}
+
+				.banner-actions {
+					z-index: 3;
+					position: absolute;
+					bottom: 20px;
+					right: 20px;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					.btn-preview,
+					.btn-edit {
+						height: 80px;
+						width: 80px;
+						border-radius: 50%;
+						background: $blue-lighter;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						cursor: pointer;
+						text-decoration: none;
+						position: relative;
+
+						svg {
+							width: 50px;
+							height: 50px;
+
+							path {
+								fill: $white;
+							}
+						}
+
+						&:hover {
+							background: $blue-light;
+						}
+					}
+
+					.btn-preview {
+						margin-right: 20px;
+					}
+
+					.btn-edit {
+						svg {
+							transform: translateX(3px);
+						}
+					}
+				}
+			}
+		}
+
+		.project-content {
+			padding-bottom: 20px;
+
+			.laoding-lists {
+				display: block;
+				width: 100%;
+				height: 150px;
+				background: $white;
+				position: relative;
+				border-left: 1px solid $grey-dark;
+				border-right: 1px solid $grey-dark;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 50px;
+					height: 50px;
+					border-radius: 50%;
+					border-top: 3px solid $blue-lighter;
+					border-right: 3px solid $blue-lighter;
+					border-bottom: 3px solid $blue-lighter;
+					border-left: 3px solid transparent;
+					animation: loading 2s infinite linear;
+				}
+			}
+
+			.title-content {
+				background: $blue;
+				padding: 11px;
+				width: 100%;
+				text-align: left;
+				font-size: 16px;
+				color: $white;
+			}
+			
+			.project-content-header {
+				border-left: 1px solid $grey-dark;
+				border-right: 1px solid $grey-dark;
+				border-bottom: 1px solid $grey-dark;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				height: 50px;
+				padding: 0 10px;
+				position: relative;
+				z-index: 1;
+				background: $grey;
+				display: none;
+
+				@include md {
+					display: flex;
+				}
+
+				.title {
+					font-size: 16px;
+					font-weight: 600;
+				}
+
+				.col {
+					text-align: center;
+				}
+
+				.header-actions {
+					.btn {
+						width: calc(50% - 6px);
+						margin: 0 3px;
+						padding: 8px 0;
+					}
+				}
+			}
+
+			.project-content-body {
+				.publisher-selection {
+					border-left: 1px solid $grey-dark;
+					border-right: 1px solid $grey-dark;
+					border-bottom: 1px solid $grey-dark;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					flex-wrap: wrap;
+					position: relative;
+					z-index: 1;
+					height: 140px;
+					padding: 20px 10px;
+
+					@include md {
+						padding: 0 10px;
+						height: 80px;
+					}
+
+					.col {
+						text-align: left;
+
+						@include md {
+							text-align: center;
+						}
+					}
+
+					.btn-publishers {
+						background: transparent;
+						border: 1px solid $grey-darken;
+						color: $grey-darken;
+						border-radius: 20px;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						width: 100%;
+
+						@include md {
+							width: 90%;
+						}
+
+						div {
+							display: inline-block;
+							margin-right: 5px;
+						}
+					}
+
+					.btn-icon {
+						cursor: pointer;
+
+						svg {
+							width: 40px;
+							height: 40px;
+							transition: transform .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+							transform: scale(1);
+						}
+
+						&.btn-unlock {
+							svg {
+								height: 37px;
+								width: 37px;
+							}
+						}
+
+						&:hover {
+							svg {
+								transform: scale(1.2);
+							}
+						}
+					}
+
+					.body-actions {
+						@include md {
+							text-align: right;
+						}
+
+						.btn {
+							// width: 100px;
+							// text-align: center;
+							
+							display: inline-block;
+							width: 48%;
+							text-align: center;
+							padding: 5px 0;
+							margin: 0px 1%;
+							
+							@include md {
+							}
+						}
+					}
+				}
+			}
+
+			.new-selection {
+				height: 80px;
+				padding: 0 10px;
+				border-left: 1px solid $grey-dark;
+				border-right: 1px solid $grey-dark;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				.col {
+					text-align: center;
+				}
+
+				.btn {
+					width: 90%;
+					border-radius: 20px;
+				}
+			}
+
+			.actions {
+				width: 100%;
+				border-left: 1px solid $grey-dark;
+				border-right: 1px solid $grey-dark;
+				border-bottom: 1px solid $grey-dark;
+				height: 100px;
+				padding: 0 10px;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+
+				.col {
+					text-align: right;
+				}
+
+				.btn {
+					padding: 15px 10px;
+					text-align: center;
+					background: $blue-lighter;
+					border-color: $blue-lighter;
+					border-radius: 5px;
+					font-size: 16px;
+					font-weight: 600;
+					margin: 0 3%;
+					width: 44%;
+
+					@include md {
+						width: 100px;
+						margin: 0 10px;
+					}
+
+					&:hover {
+						background: $blue;
+					}
+				}
+			}
+		}
+	}
+
+	[data-component='modal'] {
+	}
+}

@@ -1,0 +1,174 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-component='tag-management'] {
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	animation: fadeIn 0.7s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	._content {
+		position: absolute;
+		top: calc(50% + 20px);
+		left: 50%;
+		height: 60vh;
+		width: 90vw;
+		max-width: 850px;
+		max-height: 500px;
+		transform: translate(-50%, -50%);
+		background: $white;
+		border: 2px solid $grey-darken2;
+		border-radius: 5px;
+		padding: 15px 20px 25px;
+
+		.btn-close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-radius: 50%;
+			transform: translate(50%, -50%);
+			transition: background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+			&::before,
+			&::after {
+				width: 15px;
+			}
+
+			&:hover {
+				background: $blue-light !important;
+			}
+		}
+	}
+
+	._header {
+		height: 66px;
+		width: 100%;
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		height: 148px;
+
+		@include md {
+			height: 66px;
+		}
+
+		.label {
+			position: relative;
+			height: 66px;
+
+			&:first-child {
+				width: 100%;
+				order: 2;
+
+				@include md {
+					order: 1;
+					width: 44%;
+				}
+			}
+
+			&:last-child {
+				width: 100%;
+				order: 1;
+
+				@include md {
+					order: 2;
+					width: 54%;
+				}
+			}
+
+			.tag-alert-message {
+				position: absolute;
+				bottom: 1px;
+				right: 150px;
+				line-height: 41px;
+				font-size: 13px;
+				color: $error;
+				background: $white;
+				padding: 0 10px;
+				z-index: 1;
+			}
+
+			.btn-add-tag {
+				z-index: 2;
+				position: absolute;
+				bottom: -1px;
+				right: 0;
+				height: 45px;
+
+				svg {
+					height: 14px;
+					margin-left: 3px;
+				}
+			}
+		}
+	}
+
+	._tag-list {
+		padding: 0 3px;
+		border: 1px solid $grey-darken2;
+		border-radius: 5px;
+		width: 100%;
+		height: calc(100% - 158px);
+
+		@include md {
+			height: calc(100% - 77px);
+		}
+
+		._tag-list-content {
+			display: block;
+			height: 100%;
+			@extend %scroll-bar;
+			overflow: auto;
+			padding: 10px 7px;
+		}
+
+		.btn-tag {
+			position: relative;
+			margin: 7px;
+			vertical-align: top;
+			background: darken($grey, 10%);
+			color: $grey-darken3;
+			border: none;
+			font-weight: 500;
+			cursor: default;
+			padding: 0;
+
+			.tag-name {
+				padding: 5px 8px;
+				cursor: pointer;
+			}
+
+			.btn-close {
+				width: 20px;
+				height: 20px;
+				opacity: 0;
+				background: $grey-darken2;
+
+				&::before,
+				&::after {
+					width: 10px;
+				}
+
+				&:hover {
+					background: $grey-darken3 !important;
+				}
+			}
+
+			&:hover {
+				.btn-close {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

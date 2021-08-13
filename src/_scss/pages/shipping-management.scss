@@ -1,0 +1,452 @@
+@import "../base/colors.scss";
+@import "../utils/medias.scss";
+
+[data-page="shipping-management"] {
+  width: 100%;
+  min-height: 100vh;
+  background: $grey;
+
+  [data-component="shipping-management-content"] {
+    background: $white;
+    padding-bottom: 20px;
+
+    .shipping-management-header {
+      background: $blue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $white;
+      padding: 10px 10px 10px 20px;
+      position: relative;
+      z-index: 8;
+      height: 60px;
+
+      .title {
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .btn-chat {
+        height: 60px;
+        width: 150px;
+        justify-content: flex-start;
+        background: $blue-lighter;
+
+        svg {
+          width: 50px;
+          height: 40px;
+        }
+
+        .text {
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .shipping-management-banner {
+      border-left: 1px solid $grey-dark;
+      border-right: 1px solid $grey-dark;
+      border-bottom: 1px solid $grey-dark;
+      padding: 10px;
+
+      &.no-banner {
+        .banner-image {
+          height: 200px;
+        }
+      }
+
+      .banner-image {
+        max-height: 400px;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+          content: "";
+          z-index: 2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($black, 0.2);
+        }
+
+        img {
+          z-index: 1;
+          display: block;
+          width: 100%;
+
+          @include md {
+            height: auto;
+            width: 100%;
+          }
+        }
+
+        .without-banner {
+          height: 200px;
+          line-height: 200px;
+          text-align: center;
+          width: 100%;
+          display: block;
+          color: $white;
+          font-size: 40px;
+          font-weight: 700;
+          z-index: 3;
+          position: relative;
+        }
+
+        .banner-actions {
+          z-index: 3;
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .btn-preview,
+          .btn-edit {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background: $blue-lighter;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+
+            svg {
+              width: 50px;
+              height: 50px;
+
+              path {
+                fill: $white;
+              }
+            }
+
+            &:hover {
+              background: $blue-light;
+            }
+          }
+
+          .btn-preview {
+            margin-right: 20px;
+          }
+
+          .btn-edit {
+            svg {
+              transform: translateX(3px);
+            }
+          }
+        }
+      }
+    }
+
+    .shipping-management-content {
+      .laoding-lists {
+        display: block;
+        width: 100%;
+        height: 150px;
+        background: $white;
+        position: relative;
+        border-left: 1px solid $grey-dark;
+        border-right: 1px solid $grey-dark;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border-top: 3px solid $blue-lighter;
+          border-right: 3px solid $blue-lighter;
+          border-bottom: 3px solid $blue-lighter;
+          border-left: 3px solid transparent;
+          animation: loading 2s infinite linear;
+        }
+      }
+
+      .title-content {
+        background: $blue;
+        padding: 11px;
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        color: $white;
+      }
+
+      .shipping-management-content-header {
+        border-left: 1px solid $grey-dark;
+        border-right: 1px solid $grey-dark;
+        border-bottom: 1px solid $grey-dark;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 50px;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+        background: $grey;
+        display: none;
+
+        @include md {
+          display: flex;
+        }
+
+        .title {
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .col {
+          text-align: center;
+        }
+
+        .header-actions {
+          .btn {
+            width: calc(50% - 6px);
+            margin: 0 3px;
+            padding: 8px 0;
+          }
+        }
+      }
+
+      .shipping-management-content-body {
+        .publisher-selection {
+          border-left: 1px solid $grey-dark;
+          border-right: 1px solid $grey-dark;
+          border-bottom: 1px solid $grey-dark;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          position: relative;
+          z-index: 1;
+          height: 140px;
+          padding: 20px 10px;
+
+          @include md {
+            padding: 0 10px;
+            height: 80px;
+          }
+
+          .col {
+            text-align: left;
+
+            @include md {
+              text-align: center;
+            }
+          }
+
+          .btn-publishers {
+            background: transparent;
+            border: 1px solid $grey-darken;
+            color: $grey-darken;
+            border-radius: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+						font-size: 14px;
+						font-weight: 500;
+						transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+						&:hover {
+							color: $white;
+							border-color: $blue-lighter;
+							background: $blue-lighter;
+						}
+
+            @include md {
+              width: 90%;
+            }
+
+            div {
+              display: inline-block;
+              margin-right: 5px;
+            }
+          }
+
+          .btn-icon {
+            cursor: pointer;
+
+            svg {
+              width: 40px;
+              height: 40px;
+              transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+              transform: scale(1);
+            }
+
+            &.btn-unlock {
+              svg {
+                height: 37px;
+                width: 37px;
+              }
+            }
+
+            &:hover {
+              svg {
+                transform: scale(1.2);
+              }
+            }
+          }
+
+          .body-actions {
+						display: flex;
+						justify-content: flex-end;
+						align-items: center;
+
+            @include md {
+              text-align: right;
+            }
+
+            .btn {
+              // width: 100px;
+              // text-align: center;
+
+							display: flex;
+              width: 48%;
+              text-align: center;
+              padding: 5px 10px;
+              margin: 0px 1%;
+							height: 30px;
+
+							&.delete {
+								background: $delete;
+								text-align: center;
+								border-top-right-radius: 0;
+								border-bottom-right-radius: 0;
+								width: auto;
+
+								svg {
+									margin-left: 3px;
+								}
+
+								.text {
+									margin-left: 3px;
+								}
+							}
+
+							&.send {
+								background: $blue;
+								border-top-left-radius: 0;
+								border-bottom-left-radius: 0;
+
+								.text {
+									margin-left: 0;
+									font-weight: 500;
+									font-size: 12px;
+
+									@include lg {
+										font-size: 13px;
+									}
+
+									@include laptop {
+										font-size: 14px;
+									}
+								}
+							}
+
+              @include md {
+              }
+            }
+          }
+        }
+      }
+
+      .new-selection {
+        height: calc(80px + 80px);
+        padding: 0 10px;
+        border-left: 1px solid $grey-dark;
+        border-right: 1px solid $grey-dark;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+				padding-bottom: 80px;
+
+        .col {
+          text-align: center;
+        }
+
+        .btn {
+          width: 90%;
+          border-radius: 20px;
+        }
+      }
+
+			.historic {
+				.shipping-management-content-header {
+					border-top: 1px solid $grey-dark;
+				}
+
+				.shipping-management-content-body {
+					.publisher-selection {
+						.sent-at {
+							// text-align-last: left;
+						}
+
+						.body-actions {
+							justify-content: center;
+
+							.btn {
+								&.delete {
+									// border-top-right-radius: 50%;
+									// border-bottom-right-radius: 50%;
+									border-radius: 50%;
+									height: 38px;
+									width: 38px;
+
+									svg {
+										margin-left: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+      .actions {
+        width: 100%;
+        border-left: 1px solid $grey-dark;
+        border-right: 1px solid $grey-dark;
+        border-bottom: 1px solid $grey-dark;
+        height: 100px;
+        padding: 0 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .col {
+          text-align: right;
+        }
+
+        .btn {
+          padding: 15px 10px;
+          text-align: center;
+          background: $blue-lighter;
+          border-color: $blue-lighter;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0 3%;
+          width: 44%;
+
+          @include md {
+            width: 100px;
+            margin: 0 10px;
+          }
+
+          &:hover {
+            background: $blue;
+          }
+        }
+      }
+    }
+	}
+}

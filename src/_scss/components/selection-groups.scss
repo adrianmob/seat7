@@ -1,0 +1,229 @@
+@import "../base/base.scss";
+@import "../utils/medias.scss";
+
+[data-component="selection-groups"] {
+  padding: 20px;
+
+  .selection-groups-header {
+    display: flex;
+    justify-content: start;
+    height: 30px;
+    margin-bottom: 20px;
+
+    .btn {
+      height: 30px;
+      margin-right: 20px;
+    }
+  }
+
+  .selection-groups-form {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(100% - 50px);
+
+    .selection-groups-section {
+      width: 200px;
+      border-right: 1px solid #000;
+      margin-bottom: 20px;
+
+      .item {
+        border: none;
+        height: 30px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-top: 20px;
+
+        .checkbox-item-button,
+        .checkbox-item {
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          background: $blue;
+          cursor: pointer;
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        .checkbox-item-button {
+          background: $white;
+          border: 1px solid #000;
+
+          &.preselected {
+            background: $preselected;
+          }
+        }
+
+        .open-contacts-lst {
+          display: inline-block;
+          margin-left: 10px;
+          width: 150px;
+          height: 30px;
+          background: $grey;
+          text-align-last: left;
+          padding-left: 15px;
+          cursor: pointer;
+        }
+      }
+
+      .to-send-parent {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        width: calc(100% - 180px);
+        padding: 20px;
+      }
+
+      .group-child {
+        width: 100%;
+        margin-bottom: 15px;
+        background: $grey;
+        overflow: hidden;
+        padding: 10px;
+
+        .accordion-content {
+          margin-top: 10px;
+        }
+      }
+
+      .to-send-child {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.modal-select-groups {
+	.MuiSelect-select:focus {
+		background: transparent;
+	}
+
+  .MuiDialog-container {
+    @extend %scroll-bar;
+		
+    @media screen and (max-height: 700px) {
+			align-items: start;
+		}
+
+    @media screen and (max-height: 500px) {
+      overflow: auto;
+    }
+  }
+
+  .MuiDialog-paperScrollPaper {
+    max-height: 100%;
+    min-height: 600px;
+		overflow: hidden;
+  }
+}
+
+.modal-select-groups-content {
+	.publisher-list,
+	.contact-list {
+		color: #017bbc;
+		font-weight: 700;
+		margin-bottom: 5px;
+	}
+
+	.modal-select-groups-content-right {
+		.contact-item {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+
+			.contact-tag-list {
+				height: 14px;
+				margin-left: 10px;
+				position: relative;
+
+				svg {
+					width: 21px;
+					height: 14px;
+				}
+
+				.tag-list {
+					z-index: 99;
+					position: absolute;
+					top: 50%;
+					left: 100%;
+					margin-left: 9px;
+					padding: 3px;
+					border: 1px solid $grey-dark;
+					border-radius: 5px;
+					transform: translateY(-50%);
+					opacity: 0;
+					transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+					pointer-events: none;
+					background: $white;
+
+					.tag-list-content {
+						width: auto;
+						max-height: 150px;
+						max-width: 250px;
+						overflow: auto;
+						display: inline-flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						white-space: nowrap;
+						@extend %scroll-bar;
+
+						// &:not(.one-item) {
+						// 	width: 40vw;
+						// }
+
+						._tag {
+							display: inline-block;
+							padding: 3px 5px;
+							background: $grey;
+							margin: 5px;
+							font-size: 12px;
+							color: $grey-darken2;
+							font-weight: 500;
+							white-space: nowrap;
+							border-radius: 5px;
+						}
+					}
+
+					&::before {
+						z-index: 10;
+						content: '';
+						width: 0;
+						height: 0;
+						border-top: 9px solid transparent;
+						border-bottom: 9px solid transparent;
+						border-right: 9px solid $grey-dark;
+						position: absolute;
+						top: 50%;
+						right: 100%;
+						transform: translateY(-50%);
+					}
+
+					&::after {
+						z-index: 10;
+						content: '';
+						width: 0; 
+						height: 0; 
+						border-top: 8px solid transparent;
+						border-bottom: 8px solid transparent;
+						border-right: 8px solid $white;
+						position: absolute;
+						top: 50%;
+						right: 100%;
+						transform: translateY(-50%);
+					}
+				}
+
+				&:hover {
+					.tag-list {
+						opacity: 1;
+						pointer-events: auto;
+					}
+				}
+			}
+		}
+	}
+}

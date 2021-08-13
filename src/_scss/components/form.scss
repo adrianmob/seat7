@@ -1,0 +1,90 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-component='form'] {
+	display: block;
+	width: 100%;
+
+	@include md {
+		display: block;
+	}
+
+	.label {
+		display: block;
+		margin-bottom: 15px;
+		position: relative;
+
+		label,
+		.label-text {
+			display: block;
+			font-size: 14px;
+			color: $blue-dark;
+			margin-bottom: 4px;
+			width: 100%;
+		}
+
+		input {
+			display: block;
+			height: 45px;
+			width: 100%;
+			padding: 0 10px;
+			// border: 1px solid $grey-dark;
+			border: 1px solid $grey-darken2;
+			border-radius: 5px;
+
+			&:focus {
+				border-color: $blue-lighter;
+				color: $black;
+			}
+
+			&::placeholder {
+				color: $grey-dark;
+			}
+		}
+
+		.text-error {
+			font-size: 12px;
+			color: $error;
+			text-align: left;
+		}
+
+		.text-success {
+			font-size: 12px;
+			color: $success;
+			text-align: left;
+		}
+	}
+}
+
+.filed-infos {
+	color: $grey-darken;
+	margin-bottom: 20px;
+
+	@include md {
+		margin-bottom: 0;
+	}
+
+	.title {
+		display: block;
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+
+	.text {
+		display: block;
+		font-size: 12px;
+		line-height: 18px;
+		padding-left: 15px;
+	}
+}
+
+.required-field {
+	display: block;
+	margin-top: 20px;
+	width: 100%;
+
+	.text {
+		font-size: 16px;
+		color: $error;
+	}
+}

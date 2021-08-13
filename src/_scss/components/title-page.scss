@@ -1,0 +1,15 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+    
+[data-component='title-page'] {
+	background: $white;
+	padding: 10px 0;
+	margin-bottom: 10px;
+
+	.title {
+		color: $black;
+		font-size: 16px;
+		font-weight: 700;
+		text-align-last: left;
+	}
+}

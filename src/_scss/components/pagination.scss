@@ -1,0 +1,46 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-component='pagination'] {
+	width: 100%;
+	text-align: center;
+
+	@include md {
+		width: auto;
+	}
+
+	.link {
+		color: $black;
+		padding: 0 3px;
+		width: 21px;
+		text-align: center;
+
+		&:first-child {
+			width: auto;
+			margin-right: 10px;
+		}
+		&:last-child {
+			width: auto;
+			margin-left: 10px;
+		}
+
+		&:first-child,
+		&:last-child {
+			padding: 0;
+		}
+
+		&.active {
+			color: $blue;
+			font-weight: 700;
+			text-decoration: underline;
+		}
+
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	.link[disabled] {
+		display: none;
+	}
+}

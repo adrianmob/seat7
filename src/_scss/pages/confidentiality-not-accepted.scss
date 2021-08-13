@@ -1,0 +1,55 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-page='confidentiality-not-accepted'] {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	flex-wrap: wrap;
+
+	.content {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: calc(100% - 369px);
+	
+		@include md {
+			height: calc(100% - 271px);
+		}
+
+		.container {
+			text-align: center;
+		}
+
+		.text {
+			display: inline-block;
+			margin: 0 auto;
+			font-size: 18px;
+			line-height: 28px;
+			font-weight: 700;
+			color: $black;
+		}
+	}
+
+	.landing-page-footer {
+		width: 100%;
+		border-top: 10px solid $blue-lighter;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		padding: 30px 0 !important;
+
+		@include md {
+			padding: 60px 0 !important;
+		}
+
+		.container {
+			width: 90%;
+			max-width: 900px;
+		}
+	}
+}

@@ -1,0 +1,175 @@
+@import '../base/colors.scss';
+@import '../utils/medias.scss';
+
+[data-component='contacts-edit'] {
+	width: 100%;
+	height: calc(60vh + 75px);
+	padding: 30px 20px;
+	position: relative;
+
+	opacity: 0;
+	transform: translateX(5%);
+	animation: fadeInContactsEdit .4s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	@keyframes fadeInContactsEdit {
+		from {
+			opacity: 0;
+			transform: translateX(5%);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	.side-bar-list {
+		border-right: 1px solid $grey-dark;
+		padding-right: 25px;
+
+		.btn-back {
+			width: 100%;
+			margin-bottom: 20px;
+			justify-content: flex-start;
+
+			&:hover {
+				background: $blue !important;
+			}
+		}
+
+		.link {
+			margin-bottom: 10px;
+		}
+
+		.btn-publisher {
+			width: 100%;
+			text-align-last: left;
+			padding: 6px;
+			border-radius: 4px;
+			margin-bottom: 6px;
+			background: $grey;
+			color: $black;
+			font-weight: 500;
+
+			&:hover,
+			&.active {
+				color: $white;
+				background: $blue;
+			}
+		}
+
+		.scrollable-area {
+			height: calc(60vh - 81px);
+			overflow: auto;
+			@extend %scroll-bar;
+		}
+	}
+
+	.content {
+		padding-left: 25px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		height: 1px;
+		height: calc(60vh);
+		@extend %scroll-bar;
+
+		.container {
+			padding: 0 20px 0 0;
+		}
+
+		[data-component='collaborators-list'] {
+			padding: 0 0 20px;
+			margin-top: 10px;
+
+			[data-component='collaborators-table'] {
+				.collaborators-table-body {
+					.body-actions {
+						// .btn-delete {
+						// 	background: $delete;
+						// 	color: $white;
+						// 	border: none;
+
+						// 	&:hover {
+						// 		background: darken($delete, 10%);
+						// 	}
+						// }
+
+						// .btn-edit {
+						// 	background: $blue-lighter;
+						// 	color: $white;
+						// 	border: none;
+
+						// 	&:hover {
+						// 		background: darken($blue-lighter, 10%);
+						// 	}
+						// }
+					}
+				}
+			}
+		}
+
+		[data-component='form'] {
+			justify-content: start;
+
+			&.categorie-form {
+				.label {
+					display: flex;
+					justify-content: start;
+					align-items: center;
+
+					label {
+						width: auto;
+						margin-right: 15px;
+					}
+
+					.categorie-form-field {
+						max-width: 50%;
+						position: relative;
+	
+						input {
+							border-top-right-radius: 0;
+							border-bottom-right-radius: 0;
+							border-right: 0;
+						}
+	
+						.btn-save {
+							position: absolute;
+							top: 0;
+							left: 100%;
+							height: 100%;
+							border-top-left-radius: 0;
+							border-bottom-left-radius: 0;
+							margin-left: -1px;
+							border: none;
+						}
+					}
+				}
+			}
+		}
+
+		.new-collaborator {
+			padding: 20px 0 10px;
+
+			.title {
+				margin-bottom: 15px;
+				font-weight: 700;
+			}
+		}
+	}
+
+	[data-component='tag-management'] {
+		width: 100%;
+		height: 100%;
+
+		._content {
+			max-height: 47vh;
+		}
+
+		.modal-delete-tag.opened {
+			.content {
+				
+				height: 240px;
+			}
+		}
+	}
+}
